@@ -2438,11 +2438,11 @@ function generateHandout() {
     exportBtn.style.cssText = 'margin-top:12px; padding:10px 20px; background:#16a34a; color:white; border:none; border-radius:6px; cursor:pointer; font-size:1em;';
     exportBtn.onclick = function() {
       const content = document.getElementById('outputBody').innerHTML;
-      const blob = new Blob([`<!DOCTYPE html><html><head><meta charset="utf-8"><title>AI分层讲义</title></head><body>${content}</body></html>`], { type: 'text/html' });
+      const blob = new Blob([`<!DOCTYPE html><html><head><meta charset="utf-8"><title>讲义工厂</title></head><body>${content}</body></html>`], { type: 'text/html' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'AI分层讲义.html';
+      a.download = '讲义工厂.html';
       a.click();
       URL.revokeObjectURL(url);
       alert('讲义预览已导出！\n\n（本Demo导出HTML用于预览排版）\n实际Skill输出结构化讲义，公式排版规范，可直接打印使用。');
