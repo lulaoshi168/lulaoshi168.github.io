@@ -71,7 +71,7 @@
   /* ===== Demo Interactive Area ===== */
   .demo-panel {
     background: #FFFFFF; border-radius: 16px; padding: 36px;
-    box-shadow: 0 8px 30px rgba(20,43,82,0.1);
+    box-shadow: 0 8px 30px rgba(10,107,74,0.1);
   }
   .demo-form { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
   .form-group label { display: block; font-size: 0.9em; color: #44536B; margin-bottom: 6px; font-weight: 600; }
@@ -85,7 +85,7 @@
     color: #FFFFFF; border: none; border-radius: 10px; font-size: 1.1em;
     font-weight: 700; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
   }
-  .btn-generate:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(20,43,82,0.18); }
+  .btn-generate:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(10,107,74,0.18); }
   .btn-generate:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
   /* Generation process steps */
@@ -289,7 +289,7 @@ body.dark-mode table th {
 [style*="color:#B45309"]{color:#44536B !important}
 [style*="border-left:4px solid #B45309"]{border-left-color:#00843D !important}
 .btn-generate,.btn-generate:hover{box-shadow:none}
-.btn-generate:hover{box-shadow:0 6px 20px rgba(20,43,82,.18)}
+.btn-generate:hover{box-shadow:0 6px 20px rgba(10,107,74,.18)}
 /* UI 组件边界：装饰线仍用 #CBD5E1，表单控件单独提到 6.20:1 */
 select,input,textarea{border-color:#52627A !important}
 .form-group select:focus{border-color:#00843D !important}
@@ -332,7 +332,7 @@ button[style*="background:#B45309"]{background:#00843D !important;color:#FFFFFF 
 /* 取消 hover 位移与点击缩放：投影仪上减少重影/抖动（进度条动画保留） */
 .btn-generate:hover,.card:hover,.q-item:hover,.demo-output:hover{transform:none}
 button:active{transform:none}
-.card:hover,.q-item:hover,.demo-output:hover{box-shadow:0 8px 25px rgba(20,43,82,.15) !important}
+.card:hover,.q-item:hover,.demo-output:hover{box-shadow:0 8px 25px rgba(10,107,74,.15) !important}
 /* ===== 暗色模式：内联样式专治 =====
    根因：页面有 59 处内联 background:#FFFFFF、105 处 #F8FAFC、
    116 处 color:#44536B，均不跟变量；另有 position:fixed 的半透明白 nav。
@@ -371,7 +371,7 @@ body.dark-mode [style*="border-bottom:1px solid #CBD5E1"],
 body.dark-mode [style*="border-top:1px solid #CBD5E1"],
 body.dark-mode [style*="border-left:4px solid #CBD5E1"]{border-color:#52627A !important}
 /* 4) 固定导航白条：改不透明深蓝 + 关毛玻璃，避免横穿内容区 */
-body.dark-mode nav{background:rgba(20,43,82,0.98) !important;backdrop-filter:none}
+body.dark-mode nav{background:rgba(10,107,74,0.98) !important;backdrop-filter:none}
 body.dark-mode .nav-brand,body.dark-mode .nav-links,
 body.dark-mode .nav-links a{color:#F8FAFC !important}
 /* 5) 表单控件 */
@@ -409,6 +409,11 @@ body.dark-mode .script,body.dark-mode .pill,body.dark-mode .tag,
 body.dark-mode .prog,body.dark-mode .bar .track,
 body.dark-mode .q-item{background:#00843D !important;color:#F8FAFC !important}
 body.dark-mode .difficulty{border-color:#52627A !important}
+
+<style>
+body:not(.dark-mode) .intro-grid>div{min-height:218px;display:flex;flex-direction:column;}
+body:not(.dark-mode) .intro-grid>div>div:last-child{margin-top:auto;}
+</style>
 </style>
 </head>
 <body>
@@ -437,7 +442,7 @@ body.dark-mode .difficulty{border-color:#52627A !important}
     <p class="slogan">出题的和复算的，不是同一轮、不是同一份Prompt——数学不出错，是底线。</p>
     <div style="margin-top:20px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
       <button onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'});" style="padding:12px 24px; background:#FFFFFF; color:#0A6B4A; border:none; border-radius:24px; font-size:1em; font-weight:600; cursor:pointer; box-shadow:0 4px 15px rgba(0,0,0,0.1);">👀 先看在线Demo</button>
-      <button onclick="alert('公投11月9日开放，先收藏本页，到时候别忘了投票～')" style="padding:12px 24px; background:#00843D; color:#FFFFFF; border:none; border-radius:24px; font-size:1em; font-weight:700; cursor:pointer; box-shadow:0 4px 15px rgba(20,43,82,0.18);">👉 点击投票支持</button>
+      <button onclick="alert('公投11月9日开放，先收藏本页，到时候别忘了投票～')" style="padding:12px 24px; background:#00843D; color:#FFFFFF; border:none; border-radius:24px; font-size:1em; font-weight:700; cursor:pointer; box-shadow:0 4px 15px rgba(10,107,74,0.18);">👉 点击投票支持</button>
     </div>
     
     <div class="hero-stats">
@@ -475,24 +480,24 @@ body.dark-mode .difficulty{border-color:#52627A !important}
   <div class="container">
     <h2 class="section-title" style="margin-bottom:6px;">作品介绍 · 用 AI 把一对一备课变成 5–10 分钟的事</h2>
     <p class="section-sub" style="margin-bottom:28px;">产品理念、目标、解决的场景与核心痛点</p>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:20px;">
+    <div class="intro-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:20px;">
       <div style="background:#F8FAFC; border-radius:12px; padding:24px; border-top:4px solid #F39801;">
-        <div style="font-size:1.8em; margin-bottom:6px;">🎯</div>
+        <div style="margin-bottom:12px; line-height:0;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00843D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.8" fill="#00843D" stroke="none"/></svg></div>
         <div style="font-size:1.05em; font-weight:700; color:#00843D; margin-bottom:6px;">产品理念</div>
         <div style="font-size:0.92em; color:#44536B; line-height:1.7;">把名师十年一线经验，沉淀成一份“开箱即用”的讲义初稿，让好方法可复制、可传承。</div>
       </div>
       <div style="background:#F8FAFC; border-radius:12px; padding:24px; border-top:4px solid #F39801;">
-        <div style="font-size:1.8em; margin-bottom:6px;">🚀</div>
+        <div style="margin-bottom:12px; line-height:0;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00843D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4"/><path d="M4 4h12l-2 4 2 4H4"/></svg></div>
         <div style="font-size:1.05em; font-weight:700; color:#00843D; margin-bottom:6px;">产品目标</div>
         <div style="font-size:0.92em; color:#44536B; line-height:1.7;">让每位一对一老师，10 分钟内拿到一份“不出错”的专题讲义，把时间还给教学本身。</div>
       </div>
       <div style="background:#F8FAFC; border-radius:12px; padding:24px; border-top:4px solid #F39801;">
-        <div style="font-size:1.8em; margin-bottom:6px;">🧩</div>
+        <div style="margin-bottom:12px; line-height:0;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00843D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg></div>
         <div style="font-size:1.05em; font-weight:700; color:#00843D; margin-bottom:6px;">解决场景</div>
         <div style="font-size:0.92em; color:#44536B; line-height:1.7;">一对一 / 小班备课：时间紧、题源杂、质量难保障，老师既要出题又要逐题防错。</div>
       </div>
       <div style="background:#F8FAFC; border-radius:12px; padding:24px; border-top:4px solid #F39801;">
-        <div style="font-size:1.8em; margin-bottom:6px;">🔴</div>
+        <div style="margin-bottom:12px; line-height:0;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00843D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9.5 16.5H2.5L12 2Z"/><path d="M12 9v5"/><path d="M12 17.5h.01"/></svg></div>
         <div style="font-size:1.05em; font-weight:700; color:#00843D; margin-bottom:6px;">核心痛点</div>
         <div style="font-size:0.92em; color:#44536B; line-height:1.7;">手写一份讲义 3.5 小时、每题重算防错、排版耗时——重复劳动挤占本该用于备课的精力。</div>
       </div>
@@ -529,7 +534,7 @@ body.dark-mode .difficulty{border-color:#52627A !important}
       
       <!-- 按钮 -->
       <button onclick="generateQuickDemo()" 
-        style="width:100%; padding:16px; background:#00843D; color:#FFFFFF; border:none; border-radius:12px; font-size:1.1em; font-weight:700; cursor:pointer; box-shadow:0 4px 15px rgba(20,43,82,0.18); transition:transform 0.2s;"
+        style="width:100%; padding:16px; background:#00843D; color:#FFFFFF; border:none; border-radius:12px; font-size:1.1em; font-weight:700; cursor:pointer; box-shadow:0 4px 15px rgba(10,107,74,0.18); transition:transform 0.2s;"
         onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
         🚀 生成讲义（演示）
       </button>
@@ -1821,7 +1826,7 @@ body.dark-mode .difficulty{border-color:#52627A !important}
     <h2 style="font-size:2em; font-weight:700; margin-bottom:16px;">5–10分钟出一份分层讲义，老师审一遍就能上课</h2>
     <p style="font-size:1.1em; opacity:0.9; margin-bottom:32px;">贴学生错题档案 → AI诊断薄弱点 → 精准配比 → 答案自动复核</p>
     <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:24px;">
-      <button onclick="alert('公投11月9日开放，先收藏本页，到时候别忘了投票～')" style="padding:18px 40px; background:#00843D; color:#FFFFFF; border:none; border-radius:32px; font-size:1.1em; font-weight:700; cursor:pointer; box-shadow:0 8px 25px rgba(20,43,82,0.18);">
+      <button onclick="alert('公投11月9日开放，先收藏本页，到时候别忘了投票～')" style="padding:18px 40px; background:#00843D; color:#FFFFFF; border:none; border-radius:32px; font-size:1.1em; font-weight:700; cursor:pointer; box-shadow:0 8px 25px rgba(10,107,74,0.18);">
         👉 点击投票支持本作品
       </button>
       <button onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'});" style="padding:18px 40px; background:transparent; color:#FFFFFF; border:2px solid rgba(255,255,255,0.4); border-radius:32px; font-size:1.1em; font-weight:600; cursor:pointer;">
